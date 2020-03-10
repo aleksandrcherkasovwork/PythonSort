@@ -34,6 +34,7 @@ def sortTest(array,n):
 	insertSortTime = datetime.now() - start_time
 	print("Время работы bubbleSort: ",bubbleSortTime,"Для",n,"Итерраций")
 	print("Время работы insertSort: ",insertSortTime," Для", n,"Итерраций")
+	print("Общее время работы:", bubbleSortTime + insertSortTime)
 
 
 temp_array = list(range(0,50,2))
