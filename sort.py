@@ -44,6 +44,16 @@ def mergeSort(array):
 			k +=1
 def fastSort(array):
 	pass
+def selectionSort(array):
+	for fillSlot in range(len(array) - 1,0,-1):
+		positionMax = 0
+		for currentPosition in range(1,fillSlot+1):
+			if array[currentPosition] > array[positionMax]:
+				positionMax = currentPosition
+			temp = array[fillSlot]
+			array[fillSlot] = array[positionMax]
+			array[positionMax] = temp
+
 def sortTest(array,n):
 	print("Сортировка пузырьком")
 	start_time = datetime.now()
@@ -63,11 +73,18 @@ def sortTest(array,n):
 		test_array = array.copy()
 		mergeSort(test_array)
 	mergeSortTime = datetime.now() - start_time
+	print("Сортировка выбором")
+	start_time = datetime.now()
+	for _ in range(n):
+		test_array = array.copy()
+		selectionSort(test_array)
+	selectionSortTime = datetime.now() - start_time
 	print("Время работы bubbleSort: ",bubbleSortTime,"Для",n,"Итерраций")
 	print("Время работы insertSort: ",insertSortTime," Для", n,"Итерраций")
 	print("Время работы mergeSort: ",mergeSortTime," Для", n,"Итерраций")
+	print("Время работы selectionSort: ",selectionSortTime," Для", n,"Итерраций")
 
 
-temp_array = list(range(0,50,2))
+temp_array = list(range(0,1000,2))
 random.shuffle(temp_array)
 sortTest(temp_array,10000)
