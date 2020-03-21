@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
 from datetime import datetime
 import time
 import random
@@ -78,10 +80,11 @@ def selectionSort(array):
 def sortTest(array,n):
 	print("Сортировка пузырьком")
 	start_time = datetime.now()
+	print("Typeof:",type(array))
 	for _ in range(n):
 		test_array = array.copy()
 		bubbleSort(test_array)
-	bubbleSortTime = datetime.now() - start_time 
+	bubbleSortTime = datetime.now() - start_time
 	print("Сортировка вставкой")
 	start_time = datetime.now()
 	for _ in range(n):
